@@ -1,0 +1,69 @@
+ECOFIN 2027 — PROJET NETLIFY COMPLET (SITE PUBLIC + ADMIN MQ EVENT)
+
+CE QUE CONTIENT CE DOSSIER
+- public/index.html : fichier HTML unique contenant le site public ET toute l’interface d’administration intégrée.
+- Le fichier doit rester dans le dossier public ; ne pas le déplacer à la racine.
+- L’administration est accessible par /admin ou /#admin ; aucun second fichier HTML n’est nécessaire. Le chemin /admin renvoie vers le même index.html.
+- netlify/functions/ : API serveur pour candidatures, authentification, gestion des statuts et disponibilités.
+- netlify/lib/shared.mjs : règles communes, catégories et stockage.
+- netlify.toml : configuration du site, des fonctions et des routes.
+- package.json : dépendance Netlify Blobs.
+
+IMPORTANT : CE N'EST PAS UN SIMPLE INDEX.HTML
+Le fichier public/index.html est la page d'accueil, mais l'administration a besoin des fonctions serveur et du stockage. Il faut donc déployer le projet entier avec Git (recommandé) ou avec Netlify CLI. Le simple glisser-déposer du seul fichier HTML ne déploie pas les fonctions serveur. Le fichier HTML unique appelle toujours les fonctions sécurisées Netlify pour authentifier l’administrateur et gérer les candidatures.
+
+DÉPLOIEMENT RECOMMANDÉ AVEC GITHUB
+1. Décompresser l'archive sur l'ordinateur.
+2. Créer un dépôt GitHub privé et y envoyer tous les fichiers du dossier (package.json, netlify.toml, public/, netlify/). Ne pas envoyer uniquement public/.
+3. Dans Netlify, choisir Add new project > Import an existing project > GitHub, puis sélectionner ce dépôt.
+4. Vérifier les paramètres de build : base directory = racine du dépôt ; publish directory = public ; functions directory = netlify/functions ; build command = laisser vide (Netlify installe la dépendance à partir de package.json).
+5. Lancer le déploiement.
+
+DÉPLOIEMENT ALTERNATIF AVEC NETLIFY CLI
+Depuis le dossier qui contient package.json et netlify.toml :
+  npm install
+  npx netlify login
+  npx netlify link
+  npx netlify deploy --build --prod
+La commande netlify link associe le projet local au site existant. Vérifier le nom du site avant le déploiement de production.
+
+CONFIGURATION OBLIGATOIRE DES VARIABLES D'ENVIRONNEMENT
+Dans Netlify > Project configuration > Environment variables, créer ces variables avec le scope Functions :
+- ADMIN_PASSWORD : mot de passe administrateur fort, phrase secrète unique de 14 caractères minimum.
+- SESSION_SECRET : secret aléatoire d'au moins 32 caractères.
+Exemple de génération locale avec Node.js :
+  node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"
+Ne jamais mettre ces valeurs dans index.html, dans GitHub ou dans un message. Après leur création, redéployer le site.
+
+ACCÈS
+- Site public : https://VOTRE-SITE.netlify.app/
+- Administration : https://VOTRE-SITE.netlify.app/admin (ou https://VOTRE-SITE.netlify.app/#admin)
+L'accès à l'administration requiert le mot de passe défini dans ADMIN_PASSWORD. La page admin est noindex ; les données des candidatures ne sont jamais envoyées au public.
+
+FONCTIONNEMENT DES CANDIDATURES
+- Les candidatures sont enregistrées dans Netlify Blobs.
+- Une catégorie libre est verrouillée dès qu'une candidature est reçue ; elle apparaît « En cours de validation ».
+- Les statuts « Acceptée », « Contrat envoyé », « En attente de signature » et « En attente de règlement » restent « En cours de validation » côté public.
+- Le statut « Confirmée » affiche « Emplacement réservé ».
+- Les statuts « Refusée » et « Retirée » libèrent la catégorie.
+- « Option de 48 heures » crée une échéance ; une option expirée est libérée lors de la prochaine consultation des disponibilités.
+- Les catégories 01 (courtage en financement) et 14 (plomberie et sanitaire) restent réservées.
+
+SUMUP ET E-MAILS
+- La fiche interne permet d'ajuster le montant à régler (550 € ou 600 € TTC) selon la date prévue de réception et d'enregistrer un lien SumUp.
+- Le règlement doit être vérifié manuellement dans SumUp avant de passer le dossier à « Confirmée ». Le statut ne déclenche pas lui-même une vérification bancaire.
+- Cette version ne crée pas de lien SumUp unique automatiquement, ne reçoit pas de webhook de paiement et n'envoie pas automatiquement de courriel.
+
+STOCKAGE ET DONNÉES PERSONNELLES
+Le stockage Netlify Blobs est configuré explicitement en région eu-central-1 (Francfort) avec cohérence forte, afin que l'état public et l'administration lisent le même statut à jour. Cela ne remplace pas une vérification complète des conditions de sous-traitance, transferts éventuels, durées de conservation et obligations RGPD de l'organisateur.
+Avant ouverture des candidatures, compléter les mentions légales et la notice de confidentialité : identité et coordonnées du responsable de traitement, finalités, bases légales, destinataires, durées de conservation, droits des personnes et contact.
+
+VÉRIFICATIONS APRÈS DÉPLOIEMENT
+1. Ouvrir /admin et vérifier que la connexion fonctionne.
+2. Soumettre une candidature fictive avec une catégorie disponible.
+3. Vérifier son apparition dans le tableau de bord et le passage public à « En cours de validation ».
+4. Tester « Refusée » : la catégorie doit redevenir disponible.
+5. Tester « Confirmée » : la catégorie doit afficher « Emplacement réservé ».
+6. Supprimer les candidatures fictives ou les marquer clairement comme tests avant l'ouverture publique.
+
+AUCUN ACCÈS AU COMPTE NETLIFY N'EST INCLUS DANS CE DOSSIER. Le déploiement et la configuration des variables doivent être effectués depuis le compte de la propriétaire du site.
