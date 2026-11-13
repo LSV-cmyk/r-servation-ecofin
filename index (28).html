@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ECOFIN 2027 — Le rendez-vous des professionnels de l’immobilier, de la construction et de l’habitat en Martinique.">
+  <meta name="theme-color" content="#151027">
+  <title>ECOFIN 2027 — Un lieu de rencontres et d’opportunités | MQ EVENT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #00BF63;
+      --white: #FFFFFF;
+      --navy: #151027;
+      --navy-soft: #201a37;
+      --navy-deep: #100c1e;
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.15);
+      --green-line: rgba(0,191,99,.42);
+      --danger: #ffd1d1;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--navy); color: var(--white); font-family: 'Jost', sans-serif; line-height: 1.65; }
+    a { color: var(--green); }
+    .shell { min-height: 100vh; }
+    .container { width: min(100% - 40px, 860px); margin: 0 auto; }
+    .hero { padding: 62px 0 48px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(0,191,99,.13), transparent 58%); }
+    .brand { color: var(--green); font-size: 12px; letter-spacing: .48em; text-transform: uppercase; font-weight: 600; }
+    h1,h2,h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.12; }
+    h1 { margin: 22px 0 0; font-size: clamp(42px, 8vw, 66px); font-style: italic; }
+    h2 { margin: 0 0 10px; font-size: clamp(30px, 5vw, 40px); font-style: italic; }
+    h3 { margin: 0 0 8px; font-size: 25px; }
+    .rule { width: 58px; height: 2px; background: var(--green); margin: 24px auto; }
+    .intro { max-width: 650px; margin: 0 auto; color: var(--muted); font-size: 16px; }
+    .intro strong { color: var(--green); font-weight: 500; }
+    .event-meta { display: flex; justify-content: center; gap: 10px 24px; flex-wrap: wrap; margin-top: 28px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--white); }
+    .event-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .event-meta span::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .section { padding: 42px 0; border-top: 1px solid var(--line); }
+    .eyebrow { margin-bottom: 8px; color: var(--green); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; font-weight: 600; }
+    .lead { color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+    .steps { display: grid; gap: 10px; }
+    .step { display: flex; gap: 14px; align-items: center; padding: 13px 16px; border: 1px solid var(--line); border-radius: 5px; background: var(--navy-soft); }
+    .step .num { width: 29px; height: 29px; flex: 0 0 29px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.12); font-size: 13px; }
+    .step .step-title { font-size: 14px; font-weight: 600; }
+    .step .step-desc { color: var(--muted); font-size: 12px; }
+    .step.current { border-color: var(--green); }
+    .step.current .num,.step.done .num { background: var(--green); color: var(--navy); }
+    .card,.panel { padding: 22px; border: 1px solid var(--green-line); border-radius: 6px; background: var(--navy-soft); }
+    .card { margin-top: 18px; }
+    .panel { margin: 12px 0; }
+    .panel-title { color: var(--green); font-weight: 600; font-size: 14px; margin-bottom: 5px; }
+    .panel p { color: var(--muted); margin: 0; font-size: 13px; }
+    label.field-label { display: block; margin: 15px 0 6px; color: var(--green); font-size: 11px; letter-spacing: .09em; text-transform: uppercase; }
+    input,select,textarea { width: 100%; padding: 12px 13px; border: 1px solid rgba(255,255,255,.22); border-radius: 4px; background: var(--navy-deep); color: var(--white); font: 15px 'Jost',sans-serif; }
+    select option { background: var(--navy); color: var(--white); }
+    input:focus,select:focus,textarea:focus { outline: 2px solid var(--green); outline-offset: 2px; }
+    textarea { min-height: 90px; resize: vertical; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; width: 100%; min-height: 48px; margin-top: 18px; padding: 12px 18px; border: 1px solid var(--green); border-radius: 4px; background: var(--green); color: var(--navy); font: 700 12px 'Jost',sans-serif; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+    .btn:hover { background: transparent; color: var(--green); }
+    .btn.secondary { background: transparent; color: var(--green); }
+    .btn.secondary:hover { background: var(--green); color: var(--navy); }
+    .btn:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+    .small { color: var(--muted); font-size: 11px; margin-top: 12px; }
+    .message { margin-top: 12px; padding: 10px 12px; border: 1px solid var(--green-line); border-radius: 4px; color: var(--green); font-size: 13px; }
+    .message.error { color: var(--danger); border-color: rgba(255,209,209,.45); }
+    .check { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; color: var(--muted); font-size: 13px; }
+    .check input { width: 18px; height: 18px; flex: 0 0 18px; margin: 3px 0 0; accent-color: var(--green); }
+    .nda { max-height: 230px; overflow: auto; padding: 16px; background: var(--navy-deep); border: 1px solid var(--line); border-radius: 4px; color: var(--muted); font-size: 12px; }
+    .nda h4 { margin: 12px 0 4px; color: var(--white); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .nda p { margin: 0 0 9px; }
+    .price { margin: 20px 0; padding: 22px; border: 1px solid var(--green); border-radius: 5px; text-align: center; }
+    .price .amount { color: var(--green); font: italic 48px 'Cormorant Garamond',serif; }
+    .price .caption { color: var(--muted); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+    .price .details { margin-top: 13px; font-size: 13px; line-height: 1.9; }
+    .price .deadline { color: var(--green); font-size: 12px; margin-top: 8px; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 12px; }
+    th,td { padding: 10px 8px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { color: var(--green); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    .notice { margin-top: 15px; padding: 12px 14px; border-left: 2px solid var(--green); background: rgba(0,191,99,.08); color: var(--muted); font-size: 12px; }
+    .reserved { border-color: var(--green); }
+    .reserved .panel-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .tag { display: inline-block; padding: 3px 8px; border: 1px solid var(--green); border-radius: 20px; color: var(--green); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .category-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; margin-top: 18px; }
+    .category { padding: 12px 13px; border: 1px solid var(--line); border-radius: 4px; background: var(--navy-soft); font-size: 12px; color: var(--muted); }
+    .category b { color: var(--green); margin-right: 7px; font-weight: 600; }
+    .category { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+    .category .category-name { flex:1; min-width:150px; }
+    .status-pill { display:inline-block; padding:3px 8px; border:1px solid rgba(255,255,255,.25); border-radius:20px; color:var(--muted); font-size:9px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; }
+    .status-pill.pending { border-color:#d6a94d; color:#f2cc7a; }
+    .status-pill.reserved { border-color:var(--green); color:var(--green); }
+    .status-pill.available { border-color:rgba(255,255,255,.25); color:var(--muted); }
+    .availability-note { margin-top:12px; color:var(--muted); font-size:11px; }
+    .hidden { display: none !important; }
+    .footer { padding: 32px 0 42px; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: 11px; line-height: 2; }
+    .footer .brand { display: block; margin-bottom: 8px; }
+    @media(max-width:600px) { .container{width:min(100% - 30px,860px)} .hero{padding:48px 0 38px}.section{padding:34px 0}.card,.panel{padding:18px 15px}.category-list{grid-template-columns:1fr}.event-meta{gap:8px 15px;font-size:10px} }
+  </style>
+
+  <style id="ecofin-redesign">
+    :root{--green:#00bf63;--white:#fff;--navy:#151027;--navy-soft:#211b36;--navy-deep:#100c1e;--muted:rgba(255,255,255,.72);--line:rgba(255,255,255,.14);--green-line:rgba(0,191,99,.38);--gold:#d7c29a}
+    body{background:#f6f5f1;color:#1a1724;font-family:'Jost',sans-serif;line-height:1.65}
+    a{color:inherit}
+    .container{width:min(100% - 48px,1160px)}
+    .site-nav{position:absolute;z-index:5;top:0;left:0;right:0;color:#fff;border-bottom:1px solid rgba(255,255,255,.18)}
+    .nav-inner{width:min(100% - 48px,1320px);min-height:82px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .nav-brand{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:#fff;text-decoration:none}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    .nav-links a{text-decoration:none;color:rgba(255,255,255,.82)}.nav-links a:hover{color:var(--green)}
+    .nav-cta{border:1px solid var(--green);padding:10px 16px;color:#fff!important}
+    .hero{position:relative;min-height:690px;padding:170px 0 88px;text-align:left;display:flex;align-items:center;overflow:hidden;background:linear-gradient(90deg,rgba(16,12,30,.96) 0%,rgba(21,16,39,.88) 48%,rgba(21,16,39,.35) 100%),linear-gradient(0deg,rgba(16,12,30,.35),rgba(16,12,30,.35)),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85') center/cover no-repeat}
+    .hero:after{content:'';position:absolute;inset:auto 0 0;height:6px;background:var(--green)}
+    .hero .container{position:relative;z-index:1}.hero-copy{max-width:780px}
+    .brand{color:var(--green);font-size:11px;letter-spacing:.38em;text-transform:uppercase;font-weight:700}
+    h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.04}
+    h1{font-size:clamp(64px,10vw,112px);font-style:normal;letter-spacing:-.035em;margin:22px 0 18px}
+    h1 em{color:var(--green);font-weight:400}
+    h2{font-size:clamp(38px,5vw,58px);font-style:normal;color:#1a1724;margin:0 0 16px}
+    h3{font-size:28px;color:#1a1724;margin:0 0 8px}
+    .hero .rule{margin:24px 0;width:72px;height:2px;background:var(--green)}
+    .hero .intro{max-width:690px;margin:0;color:rgba(255,255,255,.83);font-size:clamp(16px,2vw,19px);line-height:1.7}
+    .hero .intro strong{color:#fff;font-weight:600}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .hero-actions .btn{width:auto;min-width:210px;margin:0}
+    .hero .event-meta{justify-content:flex-start;margin-top:38px;gap:12px 26px;color:rgba(255,255,255,.82);font-size:11px}
+    .hero .event-meta span:before{width:5px;height:5px}
+    .btn{border-radius:0;letter-spacing:.1em;min-height:52px;padding:14px 22px;background:var(--green);border-color:var(--green);color:#111;font-weight:700}
+    .btn:hover{background:transparent;color:var(--green)}.btn.secondary{border-color:rgba(255,255,255,.5);color:#fff}.btn.secondary:hover{background:#fff;color:#151027}
+    .section{padding:84px 0;border:0;color:#282432}
+    .section:nth-of-type(even){background:#fff}
+    .eyebrow{font-size:10px;letter-spacing:.24em;color:#008d4a;margin-bottom:13px}
+    .lead{color:#686471;font-size:15px;max-width:790px;line-height:1.8;margin:0 0 26px}
+    .steps{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:34px}
+    .step{display:block;padding:18px 16px;background:#fff;border:1px solid #e6e3e9;border-radius:0;min-height:145px;color:#262230}
+    .step .num{width:32px;height:32px;background:#f0eee9;color:#262230;margin-bottom:18px}
+    .step .step-title{font-size:13px;line-height:1.4}.step .step-desc{color:#77727e;font-size:11px;line-height:1.5;margin-top:5px}
+    .step.current{border-color:var(--green);box-shadow:inset 0 3px var(--green)}.step.current .num,.step.done .num{background:var(--green);color:#10101a}
+    .story-section{padding:88px 0;background:#f6f5f1}
+    .story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+    .story-image{min-height:460px;background:linear-gradient(0deg,rgba(21,16,39,.16),rgba(21,16,39,.02)),url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85') center/cover no-repeat;position:relative}
+    .story-image:after{content:'ECOFIN 2027';position:absolute;bottom:24px;left:24px;color:#fff;letter-spacing:.28em;font-size:11px}
+    .story-copy p{color:#696572;font-size:15px;line-height:1.9}
+    .story-points{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+    .story-point{padding:18px 18px 16px;border-left:2px solid var(--green);background:#fff}.story-point strong{display:block;color:#201b2d;font-size:14px}.story-point span{font-size:12px;color:#77727e}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ddd9df;margin-top:36px;border:1px solid #ddd9df}
+    .metric{background:#fff;padding:26px}.metric strong{font:500 42px 'Cormorant Garamond',serif;color:#008d4a;display:block}.metric span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#716d78}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+    .feature{background:#fff;border:1px solid #e8e5e9;padding:28px 24px;min-height:205px}.feature .feature-no{font:italic 28px 'Cormorant Garamond',serif;color:#008d4a}.feature h3{font-size:25px;margin:12px 0 8px}.feature p{color:#716d78;font-size:13px;line-height:1.75;margin:0}
+    .price-band{background:#151027!important;color:#fff!important}.price-band h2{color:#fff}.price-band .lead{color:rgba(255,255,255,.72)}
+    .price-band .price{border:1px solid rgba(0,191,99,.65);border-radius:0;max-width:540px;text-align:left;padding:30px;background:rgba(255,255,255,.04)}.price-band .price .amount{font-size:64px}.price-band .price .caption,.price-band .price .details{color:rgba(255,255,255,.78)}
+    .card,.panel{border-radius:0;background:#fff;border:1px solid #e7e3e9;color:#262230;padding:26px}
+    .panel{margin:12px 0;background:#fbfaf8;border-left:3px solid var(--green);border-top:0;border-right:0;border-bottom:0}.panel-title{color:#008d4a}.panel p{color:#696572}
+    label.field-label{color:#4b4654;font-weight:600;font-size:10px;letter-spacing:.12em}
+    input,select,textarea{background:#fff;color:#1e1a28;border:1px solid #d9d5de;border-radius:0;font:15px 'Jost',sans-serif}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--green);outline-offset:1px}
+    .check{color:#625e6a}.nda{background:#f7f6f3;color:#625e6a;border:1px solid #e5e1e8}.nda h4{color:#292433}
+    .price{border-radius:0}.price .amount{color:var(--green)}.price .caption,.price .details{color:#686471}
+    .notice{background:#eff9f3;color:#5e6260}.small{color:#77727e}.message{color:#008d4a}.message.error{color:#a21c2a}
+    table{color:#3b3742}th{color:#008d4a}th,td{border-color:#e5e1e8}
+    .section#section-1{background:#f6f5f1}.section#section-2,.section#section-3,.section#section-4{background:#fff}
+    #section-1 .card,#section-2 .card,#section-3 .card,#section-4 .card{max-width:850px}
+    #available-count{color:#008d4a!important}.availability-note{color:#77727e}
+    #available-count + div{color:#282432}
+    .footer{background:#100c1e;color:rgba(255,255,255,.65);border:0;padding:46px 0}.footer .brand{color:var(--green)}
+    .hidden{display:none!important}
+    @media(max-width:800px){.nav-links{gap:14px}.nav-links a:not(.nav-cta){display:none}.hero{min-height:650px;padding:145px 0 70px}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.story-grid{grid-template-columns:1fr;gap:32px}.story-image{min-height:340px}.feature-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.container{width:min(100% - 32px,1160px)}.nav-inner{width:min(100% - 32px,1320px);min-height:68px}.nav-cta{padding:8px 10px;font-size:10px}.hero{min-height:620px;padding:130px 0 58px;background-position:58% center}.hero .event-meta{display:grid;justify-content:start;gap:10px}.hero-actions{display:grid}.hero-actions .btn{width:100%}.section,.story-section{padding:58px 0}.steps{grid-template-columns:1fr 1fr}.step{min-height:130px;padding:14px}.feature-grid,.story-points,.metrics{grid-template-columns:1fr}.metric{padding:18px 22px}.card,.panel{padding:20px 16px}.price-band .price{padding:22px 18px}}
+  </style>
+
+</head>
+<body>
+<div class="shell">
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#accueil">MQ EVENT <span style="color:#00bf63">/</span> ECOFIN</a>
+      <div class="nav-links"><a href="#concept">Le concept</a><a href="#experience">L’expérience</a><a href="#exposants">Exposants</a><a class="nav-cta" href="#candidature">Candidater</a></div>
+    </div>
+  </nav>
+  <header class="hero" id="accueil">
+    <div class="container">
+      <div class="hero-copy">
+        <div class="brand">MQ EVENT présente · Martinique</div>
+        <h1>ECOFIN <em>2027</em></h1>
+        <div class="rule"></div>
+        <p class="intro">L’immobilier, la construction et l’habitat réunis en un même lieu. <strong>Une journée de rencontres professionnelles conçue pour faire avancer les projets</strong> et créer des opportunités concrètes.</p>
+        <div class="hero-actions"><a class="btn" href="#candidature">Devenir exposant</a><a class="btn secondary" href="#concept">Découvrir ECOFIN</a></div>
+        <div class="event-meta"><span>Samedi 16 janvier 2027</span><span>Karibea · Fort-de-France</span><span>8 h – 17 h</span><span>19 métiers sélectionnés</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="story-section" id="concept">
+      <div class="container story-grid">
+        <div class="story-copy">
+          <div class="eyebrow">Le concept</div>
+          <h2>Un événement pensé autour des projets réels.</h2>
+          <p>ECOFIN rassemble, le temps d’une journée, les professionnels qui accompagnent les particuliers dans leurs projets immobiliers et d’habitat : acquisition, construction, rénovation, amélioration et aménagement extérieur.</p>
+          <p>Au-delà d’un salon traditionnel, l’ambition est de faciliter des échanges ciblés, de préparer les rencontres et d’aider chaque visiteur à identifier les prochaines étapes de son projet.</p>
+          <div class="story-points"><div class="story-point"><strong>Une sélection par métier</strong><span>Une représentation professionnelle par catégorie.</span></div><div class="story-point"><strong>Des échanges préparés</strong><span>Des rencontres organisées selon les besoins exprimés.</span></div></div>
+        </div>
+        <div class="story-image" role="img" aria-label="Intérieur contemporain lumineux"></div>
+      </div>
+    </section>
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="eyebrow">L’expérience ECOFIN</div><h2>Des rencontres qui doivent avoir une suite.</h2>
+        <p class="lead">L’organisation est pensée pour que les visiteurs ne repartent pas uniquement avec des brochures, mais avec une première réponse, une estimation lorsque cela est possible ou un prochain rendez-vous clairement identifié.</p>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-no">01</div><h3>Comprendre le projet</h3><p>Un accueil et une première orientation pour cerner la nature et l’avancement du besoin.</p></article>
+          <article class="feature"><div class="feature-no">02</div><h3>Rencontrer le bon expert</h3><p>Des échanges ciblés avec les professionnels concernés, selon les demandes et disponibilités.</p></article>
+          <article class="feature"><div class="feature-no">03</div><h3>Définir la prochaine étape</h3><p>Devis, estimation, visite technique ou rendez-vous de suivi selon la nature du projet.</p></article>
+        </div>
+        <div class="metrics"><div class="metric"><strong>19</strong><span>Métiers sélectionnés</span></div><div class="metric"><strong>1</strong><span>Professionnel par métier</span></div><div class="metric"><strong>1 jour</strong><span>Pour faire avancer les projets</span></div></div>
+      </div>
+    </section>
+    <section class="section price-band" id="exposants">
+      <div class="container story-grid">
+        <div><div class="eyebrow">Espace exposants</div><h2>Votre expertise mérite une rencontre qualifiée.</h2><p class="lead">Rejoignez une sélection de professionnels complémentaires et présentez vos services à des visiteurs qui viennent avec un projet immobilier ou d’habitat.</p><p class="lead">Chaque candidature est étudiée individuellement par MQ EVENT. La représentation exclusive d’une catégorie est confirmée par écrit dans le contrat de participation.</p><a class="btn" href="#candidature">Accéder à la candidature</a></div>
+        <div class="price"><div class="caption">Participation par emplacement</div><div class="amount" id="hero-price">550 €</div><div class="details">Stand équipé et signalétique<br>Petit-déjeuner et déjeuner exposant<br>Présence dans les supports de communication<br>Organisation des rencontres et rendez-vous</div><div class="deadline">Tarif de lancement jusqu’au 19 novembre 2026 inclus.</div></div>
+      </div>
+    </section>
+    <section class="section" id="candidature">
+      <div class="container">
+        <div class="eyebrow">Candidature exposant</div>
+        <h2>Une édition. Une sélection.</h2>
+        <p class="lead">Présentez votre entreprise en quelques étapes. MQ EVENT étudie chaque candidature et vous confirme par écrit les suites données. La demande d’option de 48 heures est gratuite et ne constitue pas une réservation définitive.</p>
+        <div class="steps" aria-label="Étapes de candidature">
+          <div class="step current" id="step-indicator-1"><div class="num">1</div><div><div class="step-title">Préinscription</div><div class="step-desc">Identification de votre entreprise et de votre activité.</div></div></div>
+          <div class="step" id="step-indicator-2"><div class="num">2</div><div><div class="step-title">Confidentialité</div><div class="step-desc">Prise de connaissance du cadre de confidentialité et des informations.</div></div></div>
+          <div class="step" id="step-indicator-3"><div class="num">3</div><div><div class="step-title">Découverte du format</div><div class="step-desc">Présentation du parcours visiteurs, des prestations et du tarif.</div></div></div>
+          <div class="step" id="step-indicator-4"><div class="num">4</div><div><div class="step-title">Demande d’option de 48 heures</div><div class="step-desc">Demande gratuite, sous réserve de disponibilité et d’accord de MQ EVENT.</div></div></div>
+          <div class="step" id="step-indicator-5"><div class="num">5</div><div><div class="step-title">Validation définitive</div><div class="step-desc">Après acceptation de la candidature, signature du contrat et règlement.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulaire ECOFIN : les candidatures sont enregistrées côté serveur et accessibles uniquement depuis l’administration MQ EVENT. -->
+    <form name="candidature-ecofin" method="POST" action="/api/applications" id="application-form">
+      <input type="hidden" name="form-name" value="candidature-ecofin">
+      <div class="hidden" aria-hidden="true"><label for="bot-field">Ne pas remplir</label><input id="bot-field" name="bot-field" tabindex="-1" autocomplete="off"></div>
+      <input type="hidden" name="certification-exactitude" id="hidden-accuracy" value="Non">
+      <input type="hidden" name="tarif-affiche" id="hidden-price">
+      <input type="hidden" name="evenement" value="ECOFIN 2027 — samedi 16 janvier 2027 — Karibea, Fort-de-France — 8 h à 17 h">
+      <input type="hidden" name="statut-demande" value="Candidature à étudier — aucune réservation automatique">
+
+      <section class="section" id="section-1">
+        <div class="container">
+          <div class="eyebrow">Étape 1</div><h2>Préinscription</h2>
+          <p class="lead">Présentez votre entreprise et sélectionnez le métier pour lequel vous souhaitez candidater.</p>
+          <div class="card">
+            <label class="field-label" for="company">Raison sociale *</label>
+            <input id="company" name="raison-sociale" autocomplete="organization" maxlength="120" required>
+            <label class="field-label" for="siret">SIRET *</label>
+            <input id="siret" name="siret" inputmode="numeric" maxlength="14" pattern="[0-9]{14}" placeholder="14 chiffres" required>
+            <label class="field-label" for="representative">Nom et prénom du représentant *</label>
+            <input id="representative" name="representant" autocomplete="name" maxlength="120" required>
+            <label class="field-label" for="role">Qualité du représentant *</label>
+            <input id="role" name="qualite-representant" maxlength="80" placeholder="Gérant, président, directeur…" required>
+            <label class="field-label" for="email">E-mail professionnel *</label>
+            <input id="email" name="email-professionnel" type="email" autocomplete="email" maxlength="160" required>
+            <label class="field-label" for="phone">Téléphone *</label>
+            <input id="phone" name="telephone" type="tel" autocomplete="tel" maxlength="30" required>
+            <label class="field-label" for="trade">Métier pour lequel vous candidatez *</label>
+            <select id="trade" name="metier-candidature" required>
+              <option value="">— Sélectionnez votre métier —</option>
+              <option value="01 · Courtage en financement — emplacement réservé" disabled>01 · Courtage en financement — emplacement réservé</option>
+              <option value="02">02 · Notariat</option>
+              <option value="03">03 · Agence immobilière</option>
+              <option value="04">04 · Promotion immobilière</option>
+              <option value="05">05 · Construction de maisons individuelles</option>
+              <option value="06">06 · Lotisseur et aménageur foncier</option>
+              <option value="07">07 · Architecture</option>
+              <option value="08">08 · Bureau d’études techniques</option>
+              <option value="09">09 · Géomètre-expert</option>
+              <option value="10">10 · Diagnostic immobilier</option>
+              <option value="11">11 · Expertise bâtiment</option>
+              <option value="12">12 · Maçonnerie et gros œuvre</option>
+              <option value="13">13 · Électricité</option>
+              <option value="14 · Plomberie et sanitaire — emplacement réservé" disabled>14 · Plomberie et sanitaire — emplacement réservé</option>
+              <option value="15">15 · Menuiserie et fermetures</option>
+              <option value="16">16 · Entreprise de rénovation</option>
+              <option value="17">17 · Couverture et étanchéité</option>
+              <option value="18">18 · Pisciniste</option>
+              <option value="19">19 · Paysagiste et aménagement extérieur</option>
+            </select>
+            <p class="small">Les catégories indiquées comme « emplacement réservé » ne sont plus ouvertes aux candidatures.</p>
+            <button class="btn" type="button" id="next-1">Continuer</button>
+            <div id="message-1" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hidden" id="section-2">
+        <div class="container">
+          <div class="eyebrow">Étape 2</div><h2>Confidentialité</h2>
+          <p class="lead">Les informations détaillées sur l’organisation d’ECOFIN sont communiquées dans le cadre de l’étude de votre candidature.</p>
+          <div class="card">
+            <div class="nda">
+              <h4>Objet</h4>
+              <p>Dans le cadre de l’étude d’une éventuelle participation à ECOFIN, MQ EVENT peut communiquer des informations non publiques relatives à la préparation et à l’organisation de l’événement.</p>
+              <h4>Informations concernées</h4>
+              <p>Il peut notamment s’agir de documents internes, de modalités opérationnelles spécifiques, d’un plan d’implantation non public, d’informations commerciales ou de la liste de professionnels non encore annoncés.</p>
+              <h4>Engagement du candidat</h4>
+              <p>Le candidat s’engage à utiliser ces informations uniquement pour étudier sa participation, à ne pas les diffuser à des tiers non autorisés et à prendre des mesures raisonnables pour en préserver la confidentialité.</p>
+              <h4>Exceptions</h4>
+              <p>Ne sont pas concernées les informations déjà publiques sans violation d’un engagement, déjà connues licitement, reçues licitement d’un tiers ou développées indépendamment. Une divulgation légalement obligatoire demeure possible dans les limites prévues par la loi.</p>
+              <h4>Durée et document contractuel</h4>
+              <p>Le principe envisagé est une durée de confidentialité de vingt-quatre mois à compter de la communication des informations. Le texte définitif, son périmètre, les parties et ses modalités devront être validés et signés séparément avant communication des éléments concernés. Cette présentation ne constitue pas à elle seule un contrat de confidentialité définitif.</p>
+            </div>
+            <label class="check"><input type="checkbox" id="confidentiality-check"><span>Je confirme avoir pris connaissance de cette présentation de l’engagement de confidentialité. *</span></label>
+            <label class="check"><input type="checkbox" id="privacy-check"><span>J’ai pris connaissance de la notice de confidentialité relative au traitement de ma candidature. *</span></label>
+            <input type="hidden" name="lecture-confidentialite" id="hidden-confidentiality">
+            <input type="hidden" name="lecture-notice-confidentialite" id="hidden-privacy">
+            <button class="btn" type="button" id="next-2">Continuer vers la présentation</button>
+            <div id="message-2" aria-live="polite"></div>
+            <p class="small">Avant l’ouverture publique, MQ EVENT devra compléter la notice de confidentialité avec l’identité et les coordonnées du responsable de traitement, les finalités, les bases légales, les destinataires, les durées de conservation et les modalités d’exercice des droits.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hidden" id="section-3">
+        <div class="container">
+          <div class="eyebrow">Étape 3</div><h2>Le format ECOFIN</h2>
+          <p class="lead" id="candidate-summary"></p>
+          <div class="panel"><div class="panel-title">Une représentation par métier</div><p>19 emplacements sont prévus, avec un seul professionnel sélectionné par catégorie. Les emplacements de courtage en crédit et de plomberie sont indiqués comme réservés. L’exclusivité de chaque catégorie est confirmée par écrit dans le contrat de participation.</p></div>
+          <div class="panel"><div class="panel-title">Des visiteurs orientés selon leur projet</div><p>Les visiteurs sont accueillis et orientés selon leur projet : acquisition d’un logement ou d’un terrain, construction, rénovation, amélioration de l’habitat ou aménagement extérieur. Les rendez-vous sont organisés en fonction des demandes et des disponibilités.</p></div>
+          <div class="panel"><div class="panel-title">Des rendez-vous préparés</div><p>Un récapitulatif prévisionnel des rendez-vous attribués pourra être transmis aux exposants avant l’événement. Les coordonnées et informations personnelles des visiteurs ne seront transmises qu’aux professionnels concernés, dans le respect de leur choix et des règles applicables en matière de données personnelles.</p></div>
+          <div class="panel"><div class="panel-title">Des suites concrètes</div><p>L’objectif est de faciliter la prise de rendez-vous de suivi, les demandes de devis, les estimations indicatives et les prochaines démarches. Chaque professionnel reste responsable de ses conseils, prestations, devis et engagements.</p></div>
+          <div class="price">
+            <div class="amount" id="display-price">550 €</div>
+            <div class="caption">Participation par emplacement</div>
+            <div class="details">Emplacement équipé et signalétique à votre nom<br>Exclusivité de votre catégorie, confirmée au contrat<br>Récapitulatif prévisionnel des rendez-vous attribués<br>Petit-déjeuner d’accueil et déjeuner exposant inclus<br>Mention dans les supports de communication prévus</div>
+            <div class="deadline" id="price-deadline">Tarif de lancement de 550 € TTC pour tout règlement reçu au plus tard le 19 novembre 2026 inclus.</div>
+          </div>
+          <div class="table-wrap">
+            <table aria-label="Informations pratiques ECOFIN"><thead><tr><th>Information</th><th>Détail</th></tr></thead><tbody>
+              <tr><td>Date</td><td>Samedi 16 janvier 2027</td></tr>
+              <tr><td>Lieu</td><td>Karibea, Fort-de-France, Martinique</td></tr>
+              <tr><td>Présence exposants et accueil visiteurs</td><td>8 h – 17 h</td></tr>
+              <tr><td>Installation exposants</td><td>À partir de 7 h, selon les consignes logistiques transmises par MQ EVENT</td></tr>
+              <tr><td>Déjeuner exposants</td><td>Organisé en deux services</td></tr>
+            </tbody></table>
+          </div>
+          <p class="notice">Les modalités de règlement, les équipements précis, les conditions d’annulation et les consignes d’installation seront détaillés dans le contrat et le dossier exposant. La demande de candidature ne déclenche aucun paiement.</p>
+          <button class="btn" type="button" id="next-3">Demander une option de 48 heures</button>
+        </div>
+      </section>
+
+      <section class="section hidden" id="section-4">
+        <div class="container">
+          <div class="eyebrow">Étape 4</div><h2>Demande d’option de 48 heures</h2>
+          <p class="lead">La demande est gratuite et sans engagement financier. L’option prend effet après confirmation écrite de MQ EVENT et reste valable 48 heures. Elle ne bloque pas automatiquement une catégorie : MQ EVENT doit vérifier la disponibilité et confirmer l’option par écrit.</p>
+          <div class="card">
+            <div id="application-recap" class="lead"></div>
+            <label class="field-label" for="note">Question ou précision (facultatif)</label>
+            <textarea id="note" name="message-complementaire" maxlength="1200" placeholder="Votre message à l’équipe MQ EVENT"></textarea>
+            <label class="check"><input type="checkbox" id="accuracy-check"><span>Je certifie l’exactitude des informations communiquées et souhaite transmettre ma candidature à MQ EVENT. *</span></label>
+            <button class="btn" type="submit" id="submit-application">Transmettre ma candidature</button>
+            <div id="message-4" aria-live="polite"></div>
+            <p class="small">Votre candidature sera enregistrée dans l’espace privé MQ EVENT. Son envoi ne vaut pas acceptation ni réservation définitive.</p>
+          </div>
+        </div>
+      </section>
+    </form>
+
+    <!-- Confirmation intégrée : aucun second fichier HTML n’est nécessaire. -->
+    <section class="section hidden" id="confirmation" aria-live="polite">
+      <div class="container">
+        <div class="card" style="max-width:680px;margin:30px auto;text-align:center;padding:34px 24px">
+          <div class="brand">MQ EVENT présente</div>
+          <h2 style="margin-top:18px">Merci pour votre candidature.</h2>
+          <div class="rule"></div>
+          <p class="lead">Votre candidature a été enregistrée et transmise à l’équipe MQ EVENT. Le métier demandé apparaît désormais comme « En cours de validation » pendant l’étude de votre dossier.</p>
+          <div class="panel"><strong>ECOFIN 2027</strong><br>Samedi 16 janvier 2027<br>Karibea, Fort-de-France<br>8 h – 17 h</div>
+          <p class="small">L’envoi ne vaut pas acceptation ni réservation définitive. MQ EVENT vous contactera pour la suite. L’emplacement sera indiqué comme réservé sur le site après confirmation définitive par l’organisation.</p>
+          <a class="btn secondary" href="/">Retour à ECOFIN</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hidden" id="section-5">
+      <div class="container">
+        <div class="eyebrow">Étape 5</div><h2>Validation définitive</h2>
+        <div class="card">
+          <p class="lead">La participation à ECOFIN sera définitivement confirmée uniquement après :</p>
+          <div class="panel"><div class="panel-title">1. Acceptation écrite de votre candidature</div><p>MQ EVENT confirme la disponibilité de la catégorie et valide votre participation.</p></div>
+          <div class="panel"><div class="panel-title">2. Signature du contrat exposant</div><p>Le contrat précise notamment le métier réservé, les prestations incluses, le tarif, les modalités de règlement et les conditions d’annulation.</p></div>
+          <div class="panel"><div class="panel-title">3. Règlement selon les modalités contractuelles</div><p>Les instructions de paiement sont transmises individuellement après acceptation de votre candidature et signature du contrat. Aucun lien de paiement public n’est affiché à cette étape afin d’éviter tout règlement avant validation de MQ EVENT.</p></div>
+          <div class="notice"><strong>Récapitulatif de l’événement</strong><br>Samedi 16 janvier 2027 · Karibea, Fort-de-France · 8 h – 17 h.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Organisateur</div><h2>MQ EVENT</h2>
+        <p class="lead">Pour toute question relative à une candidature, aux catégories représentées ou aux conditions de participation, les professionnels pourront contacter directement l’organisation.</p>
+        <p class="small">Avant publication, ajouter ici les coordonnées professionnelles de MQ EVENT, les mentions légales complètes et le lien vers la notice de confidentialité définitive.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span class="brand">ECOFIN</span>ECOFIN 2027 · Une création MQ EVENT<br>Samedi 16 janvier 2027 · Karibea, Fort-de-France · 8 h – 17 h<br><span>© MQ EVENT — Tous droits réservés.</span></div>
+  </footer>
+</div>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const form = $('application-form');
+  document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', () => { const target = document.querySelector(link.getAttribute('href')); if (target) target.setAttribute('tabindex','-1'); }));
+  const eventDate = 'Samedi 16 janvier 2027';
+  const eventPlace = 'Karibea, Fort-de-France';
+  const launchDeadline = new Date('2026-11-20T00:00:00-04:00');
+  const now = new Date();
+  const isLaunchRate = now < launchDeadline;
+  const price = isLaunchRate ? 550 : 600;
+  $('display-price').textContent = price.toLocaleString('fr-FR') + ' €';
+  if ($('hero-price')) $('hero-price').textContent = price.toLocaleString('fr-FR') + ' €';
+  $('hidden-price').value = price + ' EUR';
+  $('price-deadline').textContent = isLaunchRate
+    ? 'Tarif de lancement : 550 € TTC pour tout règlement reçu au plus tard le 19 novembre 2026 inclus.'
+    : 'Tarif standard applicable : 600 € TTC par emplacement à partir du 20 novembre 2026.';
+
+  // Synchronisation publique : lorsque la fonction Netlify sera déployée,
+  // les statuts validés dans l'administration remplaceront les statuts initiaux.
+  // Format attendu : { categories: [{ id: "02", status: "available|pending|reserved" }] }.
+  const statusLabels = { available: 'Disponible', pending: 'En cours de validation', reserved: 'Emplacement réservé' };
+  async function loadPublicCategoryStatuses() {
+    try {
+      const response = await fetch('/api/public-categories', { headers: { 'Accept': 'application/json' } });
+      if (!response.ok) throw new Error('Statuts non disponibles');
+      const data = await response.json();
+      if (!Array.isArray(data.categories)) throw new Error('Réponse invalide');
+      data.categories.forEach(item => {
+        const id = String(item.id || '').padStart(2, '0');
+        const status = statusLabels[item.status] ? item.status : 'available';
+        const option = $('trade').querySelector('option[value="' + id + '"]');
+        if (option) {
+          option.disabled = status !== 'available';
+          const base = option.textContent.replace(/ — (emplacement réservé|en cours de validation|indisponible)$/i, '');
+          option.textContent = status === 'available' ? base : base + (status === 'reserved' ? ' — emplacement réservé' : ' — en cours de validation');
+        }
+      });
+    } catch (error) {
+      // Le site reste consultable ; les statuts de départ restent affichés tant que
+      // la fonction serveur n'est pas encore installée et reliée à l'administration.
+    }
+  }
+  loadPublicCategoryStatuses();
+
+  let currentStep = 1;
+  function setStep(n) {
+    currentStep = n;
+    for (let i = 1; i <= 5; i++) {
+      const indicator = $('step-indicator-' + i);
+      indicator.classList.toggle('current', i === n);
+      indicator.classList.toggle('done', i < n);
+    }
+    for (let i = 1; i <= 4; i++) $('section-' + i).classList.toggle('hidden', i !== n);
+    $('section-' + n).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function showMessage(id, text, error = true) {
+    const el = $(id);
+    el.textContent = text;
+    el.className = text ? 'message' + (error ? ' error' : '') : '';
+  }
+  function validStep1() {
+    const fields = ['company','siret','representative','role','email','phone','trade'];
+    for (const id of fields) if (!$(id).value.trim()) return false;
+    if (!/^\d{14}$/.test($('siret').value.trim())) {
+      showMessage('message-1', 'Le SIRET doit comporter exactement 14 chiffres.'); return false;
+    }
+    if (!$('email').checkValidity()) {
+      showMessage('message-1', 'Veuillez saisir une adresse e-mail professionnelle valide.'); return false;
+    }
+    return true;
+  }
+  $('next-1').addEventListener('click', () => {
+    if (!validStep1()) {
+      if (!$('message-1').textContent) showMessage('message-1', 'Merci de renseigner tous les champs obligatoires.');
+      return;
+    }
+    showMessage('message-1', '', false);
+    setStep(2);
+  });
+  $('next-2').addEventListener('click', () => {
+    if (!$('confidentiality-check').checked || !$('privacy-check').checked) {
+      showMessage('message-2', 'Merci de confirmer les deux prises de connaissance pour poursuivre.'); return;
+    }
+    $('hidden-confidentiality').value = 'Oui';
+    $('hidden-privacy').value = 'Oui';
+    $('candidate-summary').textContent = 'Candidature de ' + $('company').value.trim() + ' pour la catégorie « ' + $('trade').value + ' ». ';
+    setStep(3);
+  });
+  $('next-3').addEventListener('click', () => {
+    const recap = document.createElement('div');
+    recap.innerHTML = '<strong>Entreprise :</strong> ' + escapeHtml($('company').value.trim()) + '<br><strong>Métier :</strong> ' + escapeHtml($('trade').value) + '<br><strong>Événement :</strong> ' + eventDate + '<br><strong>Lieu :</strong> ' + eventPlace + '<br><strong>Horaires :</strong> 8 h – 17 h<br><strong>Tarif affiché :</strong> ' + price + ' €';
+    $('application-recap').replaceChildren(recap);
+    setStep(4);
+  });
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if ($('trade').selectedOptions[0] && $('trade').selectedOptions[0].disabled) {
+      showMessage('message-4', 'Cette catégorie n’est plus disponible. Merci de revenir à la première étape et de sélectionner un autre métier.');
+      return;
+    }
+    if (currentStep !== 4 || !$('accuracy-check').checked) {
+      showMessage('message-4', 'Merci de certifier l’exactitude des informations avant l’envoi.');
+      return;
+    }
+    $('hidden-accuracy').value = 'Oui';
+    const submitButton = $('submit-application');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Envoi en cours…';
+    showMessage('message-4', '', false);
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+      payload.categoryId = $('trade').value;
+      const response = await fetch('/api/applications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'La candidature n’a pas pu être transmise.');
+      form.classList.add('hidden');
+      document.querySelectorAll('.steps, .event-meta').forEach(el => el.classList.add('hidden'));
+      $('confirmation').classList.remove('hidden');
+      $('confirmation').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      await loadPublicCategoryStatuses();
+    } catch (error) {
+      showMessage('message-4', error.message || 'Une erreur est survenue. Merci de réessayer.');
+      submitButton.disabled = false;
+      submitButton.textContent = 'Transmettre ma candidature';
+    }
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('candidature') === 'transmise') {
+    form.classList.add('hidden');
+    document.querySelectorAll('.steps, .event-meta').forEach(el => el.classList.add('hidden'));
+    $('confirmation').classList.remove('hidden');
+    $('confirmation').scrollIntoView({ behavior: 'auto', block: 'start' });
+  }
+})();
+</script>
+
+<!-- Administration intégrée dans ce même fichier HTML. Accès via /admin ou /#admin. -->
+<div id="ecofin-admin-overlay" hidden style="position:fixed;inset:0;z-index:99999;background:#f3f4f6;">
+  <iframe id="ecofin-admin-frame" title="Administration privée ECOFIN" style="display:block;width:100%;height:100%;border:0;background:#f3f4f6;"></iframe>
+</div>
+<script>
+(() => {
+  const adminDocument = "\u003c!doctype html>\n\u003chtml lang=\"fr\">\n\u003chead>\n\u003cmeta charset=\"utf-8\">\n\u003cmeta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n\u003cmeta name=\"robots\" content=\"noindex,nofollow\">\n\u003cmeta name=\"theme-color\" content=\"#151027\">\n\u003ctitle>Administration ECOFIN — MQ EVENT\u003c/title>\n\u003cstyle>\n:root{--navy:#151027;--navy2:#211a38;--green:#00bf63;--bg:#f3f4f6;--ink:#252337;--muted:#77768a;--line:#e7e6ec;--amber:#a56a00;--red:#a43838}\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}\n.topbar{background:var(--navy);color:white;padding:18px max(22px,calc((100vw - 1240px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-size:13px;letter-spacing:.2em;font-weight:800}.brand b{color:var(--green)}.topnote{font-size:11px;color:#c7c3d3;letter-spacing:.08em}\n.wrap{max-width:1240px;margin:32px auto;padding:0 20px}.login{max-width:440px;margin:70px auto;background:white;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 10px 35px rgba(20,15,40,.06)}h1{font-size:28px;margin:0 0 8px}h2{font-size:17px;margin:0 0 16px}.muted{color:var(--muted);font-size:13px;line-height:1.55}.field{display:block;margin:18px 0 6px;font-size:12px;font-weight:700;color:#555367}input,select,textarea{width:100%;border:1px solid #d9d8e1;border-radius:9px;padding:11px 12px;background:white;color:var(--ink)}textarea{min-height:95px;resize:vertical}.btn{border:0;border-radius:9px;padding:11px 15px;background:var(--navy);color:white;font-weight:700}.btn.green{background:var(--green);color:var(--navy)}.btn.light{background:white;border:1px solid var(--line);color:var(--ink)}.btn.danger{background:#fff0f0;color:var(--red);border:1px solid #f0caca}.btn:disabled{opacity:.5;cursor:not-allowed}.login .btn{width:100%;margin-top:16px}.error{color:var(--red);font-size:13px;margin-top:12px}.hidden{display:none!important}\n.heading{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}.heading p{margin:5px 0 0}.actions{display:flex;gap:8px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}.stat,.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:18px}.stat small{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:28px;margin-top:7px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}.panel h2{margin-bottom:13px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.filter{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 11px;font-size:12px;color:#555}.filter.active{background:var(--navy);border-color:var(--navy);color:white}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:710px;font-size:13px}th{text-align:left;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:12px 9px;border-bottom:1px solid var(--line)}td{padding:13px 9px;border-bottom:1px solid var(--line);vertical-align:middle}.company{font-weight:700}.minor{font-size:11px;color:var(--muted);margin-top:3px}.pill{display:inline-flex;padding:5px 9px;border-radius:99px;font-size:10px;font-weight:700;background:#f0eef5;color:#5b5570}.pill.pending{background:#fff4dc;color:#835900}.pill.reserved{background:#e3f8ec;color:#08743d}.pill.closed{background:#f4e9e9;color:#8d3d3d}.rowbtn{padding:7px 9px;font-size:11px}.catrow{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.catstate{font-size:10px;font-weight:700;color:#777}.catstate.pending{color:var(--amber)}.catstate.reserved{color:#07804a}.detail{margin-top:16px}.detailgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.info{padding:10px 12px;background:#f7f7f9;border-radius:9px;min-width:0}.info small{display:block;font-size:10px;color:var(--muted);margin-bottom:4px}.info b{font-size:13px;overflow-wrap:anywhere}.detailwide{grid-column:1/-1}.detailbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.helper{font-size:11px;color:var(--muted);line-height:1.5;margin-top:12px}.footer{padding:26px;text-align:center;font-size:11px;color:var(--muted)}.notice{background:#fff7e5;border:1px solid #f1dfb5;color:#765a1e;border-radius:10px;padding:11px 13px;font-size:12px;margin:16px 0}\n@media(max-width:900px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.wrap{padding:0 12px;margin:20px auto}.stats{gap:8px}.stat,.panel{padding:13px}.stat strong{font-size:23px}.detailgrid{grid-template-columns:1fr}.detailwide{grid-column:auto}.topbar{padding:15px 14px}}\n\u003c/style>\n\u003c/head>\n\u003cbody>\n\u003cheader class=\"topbar\">\u003cdiv>\u003cdiv class=\"brand\">MQ \u003cb>EVENT\u003c/b>\u003c/div>\u003cdiv class=\"topnote\">ECOFIN 2027 · ADMINISTRATION PRIVÉE\u003c/div>\u003c/div>\u003cdiv class=\"topnote\">SAMEDI 16 JANVIER 2027\u003c/div>\u003c/header>\n\u003cmain class=\"wrap\">\n\u003csection id=\"login-panel\" class=\"login\">\n  \u003cdiv class=\"brand\" style=\"color:var(--green)\">ESPACE CONFIDENTIEL\u003c/div>\n  \u003ch1 style=\"margin-top:12px\">Administration ECOFIN\u003c/h1>\n  \u003cp class=\"muted\">Connecte-toi pour gérer les candidatures, les métiers et le suivi des exposants.\u003c/p>\n  \u003cform id=\"login-form\">\u003clabel class=\"field\" for=\"password\">Mot de passe administrateur\u003c/label>\u003cinput id=\"password\" type=\"password\" autocomplete=\"current-password\" required>\u003cbutton class=\"btn green\" type=\"submit\">Se connecter\u003c/button>\u003cdiv id=\"login-error\" class=\"error\" role=\"alert\">\u003c/div>\u003c/form>\n\u003c/section>\n\u003csection id=\"dashboard\" class=\"hidden\">\n  \u003cdiv class=\"heading\">\u003cdiv>\u003ch1>Tableau de bord\u003c/h1>\u003cp class=\"muted\">Suivi des candidatures et des 19 catégories professionnelles.\u003c/p>\u003c/div>\u003cdiv class=\"actions\">\u003cbutton class=\"btn light\" id=\"refresh\">Actualiser\u003c/button>\u003cbutton class=\"btn\" id=\"logout\">Déconnexion\u003c/button>\u003c/div>\u003c/div>\n  \u003cdiv class=\"notice\">Une catégorie passe en « Emplacement réservé » uniquement lorsque tu la marques « Confirmée ». Les étapes intermédiaires restent visibles au public comme « En cours de validation ».\u003c/div>\n  \u003cdiv class=\"stats\">\u003cdiv class=\"stat\">\u003csmall>Candidatures reçues\u003c/small>\u003cstrong id=\"count-total\">0\u003c/strong>\u003c/div>\u003cdiv class=\"stat\">\u003csmall>À étudier / option\u003c/small>\u003cstrong id=\"count-pending\">0\u003c/strong>\u003c/div>\u003cdiv class=\"stat\">\u003csmall>Suivi contrat / paiement\u003c/small>\u003cstrong id=\"count-followup\">0\u003c/strong>\u003c/div>\u003cdiv class=\"stat\">\u003csmall>Confirmées\u003c/small>\u003cstrong id=\"count-confirmed\">0\u003c/strong>\u003c/div>\u003c/div>\n  \u003cdiv class=\"layout\">\n    \u003csection class=\"panel\">\n      \u003cdiv class=\"detailbar\">\u003ch2>Candidatures exposants\u003c/h2>\u003cspan id=\"last-update\" class=\"muted\">\u003c/span>\u003c/div>\n      \u003cdiv class=\"filters\">\u003cbutton class=\"filter active\" data-filter=\"all\">Toutes\u003c/button>\u003cbutton class=\"filter\" data-filter=\"pending\">À étudier\u003c/button>\u003cbutton class=\"filter\" data-filter=\"followup\">Contrat / paiement\u003c/button>\u003cbutton class=\"filter\" data-filter=\"confirmed\">Confirmées\u003c/button>\u003cbutton class=\"filter\" data-filter=\"closed\">Refusées / expirées\u003c/button>\u003c/div>\n      \u003cdiv class=\"tablewrap\">\u003ctable>\u003cthead>\u003ctr>\u003cth>Entreprise / contact\u003c/th>\u003cth>Métier\u003c/th>\u003cth>Statut\u003c/th>\u003cth>Fiche\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody id=\"application-rows\">\u003ctr>\u003ctd colspan=\"4\" class=\"muted\">Chargement…\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003c/div>\n      \u003cdiv id=\"detail\" class=\"detail hidden\">\u003c/div>\n    \u003c/section>\n    \u003caside class=\"panel\">\u003ch2>Disponibilité des métiers\u003c/h2>\u003cdiv id=\"category-list\">\u003cp class=\"muted\">Chargement…\u003c/p>\u003c/div>\u003cp class=\"helper\">Courtier en financement et plomberie restent réservés. Les statuts sont partagés avec la page publique ECOFIN.\u003c/p>\u003c/aside>\n  \u003c/div>\n  \u003cp class=\"helper\">Le suivi SumUp de cette version est manuel : ajoute ton lien de paiement dans la fiche du candidat, puis vérifie le règlement dans ton compte SumUp avant de passer la candidature en « Confirmée ». Aucun paiement n'est vérifié automatiquement pour le moment.\u003c/p>\n\u003c/section>\n\u003c/main>\n\u003cdiv class=\"footer\">MQ EVENT · ECOFIN 2027 · Accès réservé à l’organisation\u003c/div>\n\u003cscript>\n(() => {\n  const $ = id => document.getElementById(id);\n  let applications = [];\n  let categories = [];\n  let currentFilter = 'all';\n  let activeId = null;\n  const statuses = [\n    ['pending_review','À étudier'],['option_48h','Option 48 h'],['accepted','Acceptée – contrat à préparer'],['contract_sent','Contrat envoyé'],['awaiting_signature','En attente de signature'],['awaiting_payment','En attente de règlement'],['confirmed','Confirmée – emplacement réservé'],['rejected','Refusée'],['withdrawn','Retirée']\n  ];\n  const esc = value => String(value ?? '').replace(/[&\u003c>\"']/g, c => ({'&':'&amp;','\u003c':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]));\n  const statusLabel = key => (statuses.find(item => item[0] === key)?.[1]) || (key === 'expired' ? 'Option expirée' : key);\n  function statusClass(status){ if(status==='confirmed') return 'reserved'; if(['rejected','withdrawn','expired'].includes(status)) return 'closed'; return 'pending'; }\n  function filterMatch(item){\n    if(currentFilter==='all') return true;\n    if(currentFilter==='pending') return ['pending_review','option_48h'].includes(item.status);\n    if(currentFilter==='followup') return ['accepted','contract_sent','awaiting_signature','awaiting_payment'].includes(item.status);\n    if(currentFilter==='confirmed') return item.status==='confirmed';\n    return ['rejected','withdrawn','expired'].includes(item.status);\n  }\n  async function api(path, options={}){\n    const response = await fetch(path, {credentials:'same-origin', ...options, headers:{'Content-Type':'application/json', ...(options.headers||{})}});\n    const body = await response.json().catch(()=>({}));\n    if(response.status===401){ showLogin(); throw new Error('Session expirée. Reconnecte-toi.'); }\n    if(!response.ok) throw new Error(body.error || 'Une erreur est survenue.');\n    return body;\n  }\n  function showLogin(){ $('dashboard').classList.add('hidden'); $('login-panel').classList.remove('hidden'); }\n  function showDashboard(){ $('login-panel').classList.add('hidden'); $('dashboard').classList.remove('hidden'); }\n  async function load(){\n    const data=await api('/api/admin-api'); applications=data.applications||[]; categories=data.categories||[];\n    $('count-total').textContent=data.counts.total; $('count-pending').textContent=data.counts.pending;\n    $('count-followup').textContent=data.counts.followup; $('count-confirmed').textContent=data.counts.confirmed;\n    $('last-update').textContent='Mis à jour à '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});\n    renderRows(); renderCategories();\n    if(activeId){const found=applications.find(a=>a.id===activeId); if(found) renderDetail(found); else $('detail').classList.add('hidden');}\n  }\n  function renderRows(){\n    const rows=applications.filter(filterMatch);\n    $('application-rows').innerHTML=rows.length?rows.map(a=>`\u003ctr>\u003ctd>\u003cdiv class=\"company\">${esc(a.company)}\u003c/div>\u003cdiv class=\"minor\">${esc(a.email)} · ${esc(a.phone)}\u003c/div>\u003c/td>\u003ctd>${esc(a.categoryName)}\u003cdiv class=\"minor\">Reçue le ${new Date(a.createdAt).toLocaleDateString('fr-FR')}\u003c/div>\u003c/td>\u003ctd>\u003cspan class=\"pill ${statusClass(a.status)}\">${esc(statusLabel(a.status))}\u003c/span>\u003c/td>\u003ctd>\u003cbutton class=\"btn rowbtn\" data-open=\"${esc(a.id)}\">Ouvrir\u003c/button>\u003c/td>\u003c/tr>`).join(''):'\u003ctr>\u003ctd colspan=\"4\" class=\"muted\">Aucune candidature dans cette vue.\u003c/td>\u003c/tr>';\n  }\n  function renderCategories(){\n    $('category-list').innerHTML=categories.map(c=>`\u003cdiv class=\"catrow\">\u003cspan>${esc(c.id)} · ${esc(c.name)}\u003c/span>\u003cspan class=\"catstate ${c.status}\">${c.status==='reserved'?'Réservé':c.status==='pending'?'En validation':'Disponible'}\u003c/span>\u003c/div>`).join('');\n  }\n  function renderDetail(a){\n    activeId=a.id;\n    $('detail').classList.remove('hidden');\n    const selectOptions=statuses.map(([key,label])=>`\u003coption value=\"${key}\" ${a.status===key?'selected':''}>${label}\u003c/option>`).join('');\n    $('detail').innerHTML=`\u003cdiv class=\"panel\" style=\"background:#fafafd;margin-top:10px\">\n      \u003cdiv class=\"detailbar\">\u003cdiv>\u003ch2 style=\"margin:0\">${esc(a.company)}\u003c/h2>\u003cdiv class=\"muted\">Candidature reçue le ${new Date(a.createdAt).toLocaleString('fr-FR')}\u003c/div>\u003c/div>\u003cbutton class=\"btn light\" id=\"close-detail\">Fermer\u003c/button>\u003c/div>\n      \u003cdiv class=\"detailgrid\" style=\"margin-top:14px\">\n        \u003cdiv class=\"info\">\u003csmall>SIRET\u003c/small>\u003cb>${esc(a.siret)}\u003c/b>\u003c/div>\u003cdiv class=\"info\">\u003csmall>Métier\u003c/small>\u003cb>${esc(a.categoryId)} · ${esc(a.categoryName)}\u003c/b>\u003c/div>\n        \u003cdiv class=\"info\">\u003csmall>Représentant\u003c/small>\u003cb>${esc(a.representative)}\u003c/b>\u003c/div>\u003cdiv class=\"info\">\u003csmall>Qualité\u003c/small>\u003cb>${esc(a.role)}\u003c/b>\u003c/div>\n        \u003cdiv class=\"info\">\u003csmall>E-mail\u003c/small>\u003cb>\u003ca href=\"mailto:${encodeURIComponent(a.email)}\">${esc(a.email)}\u003c/a>\u003c/b>\u003c/div>\u003cdiv class=\"info\">\u003csmall>Téléphone\u003c/small>\u003cb>${esc(a.phone)}\u003c/b>\u003c/div>\n        \u003cdiv class=\"info\">\u003csmall>Montant à régler (TTC)\u003c/small>\u003cinput id=\"price-value\" type=\"number\" min=\"550\" max=\"600\" step=\"50\" value=\"${esc(a.price)}\">\u003cdiv class=\"helper\">À valider selon la date de réception prévue : 550 € jusqu’au 19/11/2026 inclus, puis 600 € à compter du 20/11/2026.\u003c/div>\u003c/div>\u003cdiv class=\"info\">\u003csmall>Statut actuel\u003c/small>\u003cb>${esc(statusLabel(a.status))}\u003c/b>\u003c/div>\n        \u003cdiv class=\"info detailwide\">\u003csmall>Message complémentaire\u003c/small>\u003cb>${esc(a.extraMessage || 'Aucun message')}\u003c/b>\u003c/div>\n        \u003cdiv class=\"info detailwide\">\u003csmall>Notes internes MQ EVENT\u003c/small>\u003ctextarea id=\"admin-notes\" maxlength=\"2000\">${esc(a.adminNotes||'')}\u003c/textarea>\u003c/div>\n        \u003cdiv class=\"info detailwide\">\u003csmall>Lien SumUp à transmettre après validation\u003c/small>\u003cinput id=\"sumup-url\" type=\"url\" placeholder=\"https://pay.sumup.com/...\" value=\"${esc(a.sumupUrl||'')}\">\u003cdiv class=\"helper\">Le lien reste visible uniquement dans cette fiche. Le paiement doit être vérifié dans SumUp avant de marquer la participation comme confirmée.\u003c/div>\u003c/div>\n        \u003cdiv class=\"info detailwide\">\u003csmall>Suivi de la candidature\u003c/small>\u003cselect id=\"status-select\">${selectOptions}${a.status==='expired'?'\u003coption value=\"expired\" selected>Option expirée\u003c/option>':''}\u003c/select>\u003cdiv class=\"helper\">« Option 48 h » déclenche une échéance automatique. « Confirmée » publie l’emplacement réservé. « Refusée » libère la catégorie.\u003c/div>\u003c/div>\n      \u003c/div>\n      \u003cdiv class=\"actions\" style=\"margin-top:14px\">\u003cbutton class=\"btn green\" id=\"save-detail\">Enregistrer la fiche\u003c/button>\u003ca class=\"btn light\" href=\"mailto:${encodeURIComponent(a.email)}?subject=${encodeURIComponent('ECOFIN 2027 – '+a.categoryName)}\">Préparer un e-mail\u003c/a>\u003c/div>\n      \u003cdiv id=\"detail-message\" class=\"helper\" aria-live=\"polite\">\u003c/div>\n    \u003c/div>`;\n    $('close-detail').addEventListener('click',()=>{$('detail').classList.add('hidden');activeId=null;});\n    $('save-detail').addEventListener('click',saveDetail);\n  }\n  async function saveDetail(){\n    const button=$('save-detail');button.disabled=true;\n    try{\n      await api('/api/admin-api',{method:'PATCH',body:JSON.stringify({id:activeId,status:$('status-select').value,adminNotes:$('admin-notes').value,sumupUrl:$('sumup-url').value,price:$('price-value').value})});\n      $('detail-message').textContent='Fiche enregistrée. Les disponibilités publiques ont été actualisées.';\n      await load();\n    }catch(error){$('detail-message').textContent=error.message;}\n    finally{button.disabled=false;}\n  }\n  $('login-form').addEventListener('submit',async event=>{\n    event.preventDefault(); $('login-error').textContent='';\n    const button=event.currentTarget.querySelector('button');button.disabled=true;\n    try{await api('/api/admin-auth',{method:'POST',body:JSON.stringify({password:$('password').value})});$('password').value='';showDashboard();await load();}\n    catch(error){$('login-error').textContent=error.message;}\n    finally{button.disabled=false;}\n  });\n  $('logout').addEventListener('click',async()=>{try{await api('/api/admin-auth',{method:'DELETE'});}catch{}showLogin();});\n  $('refresh').addEventListener('click',()=>load().catch(error=>alert(error.message)));\n  $('application-rows').addEventListener('click',event=>{const button=event.target.closest('[data-open]');if(!button)return;const item=applications.find(a=>a.id===button.dataset.open);if(item)renderDetail(item);});\n  document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));button.classList.add('active');currentFilter=button.dataset.filter;renderRows();}));\n  api('/api/admin-auth').then(state=>{if(state.authenticated){showDashboard();return load();}showLogin();}).catch(()=>showLogin());\n})();\n\u003c/script>\n\u003c/body>\n\u003c/html>\n";
+  const overlay = document.getElementById('ecofin-admin-overlay');
+  const frame = document.getElementById('ecofin-admin-frame');
+  let loaded = false;
+  function syncAdminView() {
+    const isAdmin = location.hash === '#admin';
+    overlay.hidden = !isAdmin;
+    document.documentElement.style.overflow = isAdmin ? 'hidden' : '';
+    if (isAdmin && !loaded) { frame.srcdoc = adminDocument; loaded = true; }
+  }
+  window.addEventListener('hashchange', syncAdminView);
+  syncAdminView();
+})();
+</script>
+
+</body>
+</html>
