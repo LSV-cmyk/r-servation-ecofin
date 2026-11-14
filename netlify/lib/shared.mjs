@@ -25,6 +25,9 @@ export const CATEGORIES = [
   { id: '17', name: 'Couverture et étanchéité' },
   { id: '18', name: 'Pisciniste' },
   { id: '19', name: 'Paysagiste et aménagement extérieur' },
+  { id: '20', name: 'Cuisiniste – conception et aménagement de cuisines' },
+  { id: '21', name: 'Plans de travail – marbre, quartz et céramique' },
+  { id: '22', name: 'Mobilier et décoration intérieure' },
 ];
 
 export const STATUS_LABELS = {
